@@ -20,7 +20,7 @@ export class PayDto {
     @IsString({ message: Message.STRING('$property') })
     @ApiProperty({
         title: 'travelTime',
-        example: 'lima',
+        example: '04:00:00',
         required: false,
     })
     travelTime: string;
@@ -30,7 +30,7 @@ export class PayDto {
     @IsNumber({}, { message: Message.NUMBER('$property') })
     @ApiProperty({
         title: 'originDestination',
-        example: '30',
+        example: '1',
         required: false,
     })
     originDestination: number;
@@ -40,7 +40,7 @@ export class PayDto {
     @IsNumber({}, { message: Message.NUMBER('$property') })
     @ApiProperty({
         title: 'finalDestination',
-        example: '30',
+        example: '2',
         required: false,
     })
     finalDestination: number;
