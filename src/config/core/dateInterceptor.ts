@@ -2,7 +2,6 @@ import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nes
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import * as moment from 'moment-timezone';
-import 'moment-timezone'
 
 @Injectable()
 export class DateInterceptor implements NestInterceptor {
