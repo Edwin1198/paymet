@@ -17,6 +17,27 @@ const ms_port_micro = process.env.MS_PORT_MICRO
   ? +process.env.MS_PORT_MICRO
   : 4000;
 const host_name = process.env.HOST_NAME ? process.env.HOST_NAME : '0.0.0.0';
+
+const ORDEN_Y_SERVICIO_TITLE = process.env.ORDEN_Y_SERVICIO_TITLE
+  ? process.env.ORDEN_Y_SERVICIO_TITLE
+  : 'DESCONECTADO';
+const ORDEN_Y_SERVICIO_HOST_NAME = process.env.ORDEN_Y_SERVICIO_HOST_NAME
+  ? process.env.ORDEN_Y_SERVICIO_HOST_NAME
+  : 'DESCONECTADO';
+const ORDEN_Y_SERVICIO_HOST_PORT = process.env.ORDEN_Y_SERVICIO_HOST_PORT
+  ? process.env.ORDEN_Y_SERVICIO_HOST_PORT
+  : 'DESCONECTADO';
+
+const CATALOGOS_TITLE = process.env.CATALOGOS_TITLE
+  ? process.env.CATALOGOS_TITLE
+  : 'DESCONECTADO';
+const CATALOGOS_HOST_NAME = process.env.CATALOGOS_HOST_NAME
+  ? process.env.CATALOGOS_HOST_NAME
+  : 'DESCONECTADO';
+const CATALOGOS_HOST_PORT = process.env.CATALOGOS_HOST_PORT
+  ? process.env.CATALOGOS_HOST_PORT
+  : 'DESCONECTADO';
+
 new Logger(subtitle);
 
 function configureSwagger(app: any): void {
@@ -61,5 +82,13 @@ async function bootstrap() {
   Logger.log(`Microservices endpoints port ${app_port}`, `${app_port}`);
   Logger.log(`Microservice port: ${ms_port_micro}`, `${ms_port_micro}`);
   Logger.log(`Microservice url ${await app.getUrl()}`, `URL`);
+  Logger.log(
+    `${ORDEN_Y_SERVICIO_TITLE} Host: ${ORDEN_Y_SERVICIO_HOST_NAME}:${ORDEN_Y_SERVICIO_HOST_PORT}`,
+    ORDEN_Y_SERVICIO_TITLE,
+  );
+  Logger.log(
+    `${CATALOGOS_TITLE} Host: ${CATALOGOS_HOST_NAME}:${CATALOGOS_HOST_PORT}`,
+    CATALOGOS_TITLE,
+  );
 }
 bootstrap();
