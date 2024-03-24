@@ -6,7 +6,8 @@ import { ClientProxyFactory, Transport } from '@nestjs/microservices';
 
 @Module({
   controllers: [ProcessController],
-  providers: [ProcessService,
+  providers: [
+    ProcessService,
     {
       provide: 'ms-0001-order-service',
       inject: [ConfigService],
@@ -30,7 +31,7 @@ import { ClientProxyFactory, Transport } from '@nestjs/microservices';
             port: configService.get('CATALOGOS_HOST_PORT'),
           },
         }),
-    }
-  ]
+    },
+  ],
 })
 export class ProcessModule {}

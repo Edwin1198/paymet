@@ -1,2 +1,2 @@
-export * from './pay.config'
-export * from './pay.dto'
+export * from './pay.config';
+export * from './pay.dto';

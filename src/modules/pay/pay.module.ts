@@ -7,6 +7,6 @@ import { CityEntity, PayEntity } from 'src/entity';
 @Module({
   imports: [TypeOrmModule.forFeature([CityEntity, PayEntity])],
   controllers: [PayController],
-  providers: [PayService]
+  providers: [PayService],
 })
 export class PayModule {}

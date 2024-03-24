@@ -7,11 +7,15 @@ import { DateInterceptor } from './config/core/dateInterceptor';
 
 const title = process.env.TITLE ? process.env.TITLE : 'TITLE';
 const subtitle = process.env.SUBTITLE ? process.env.SUBTITLE : 'SUBTITLE';
-const descripcion = process.env.DESCRIPCION ? process.env.DESCRIPCION : 'DESCRIPCION';
+const descripcion = process.env.DESCRIPCION
+  ? process.env.DESCRIPCION
+  : 'DESCRIPCION';
 const version = process.env.VERSION ? process.env.VERSION : '1.0';
 const ENV = process.env.ENV ? process.env.ENV : '';
 const app_port = process.env.HOST_PORT ? +process.env.HOST_PORT : 3000;
-const ms_port_micro = process.env.MS_PORT_MICRO ? +process.env.MS_PORT_MICRO : 4000;
+const ms_port_micro = process.env.MS_PORT_MICRO
+  ? +process.env.MS_PORT_MICRO
+  : 4000;
 const host_name = process.env.HOST_NAME ? process.env.HOST_NAME : '0.0.0.0';
 new Logger(subtitle);
 
@@ -26,7 +30,6 @@ function configureSwagger(app: any): void {
 }
 
 async function bootstrap() {
-
   const app = await NestFactory.create(AppModule);
   app.setGlobalPrefix('');
   app.enableCors({ origin: '*' });

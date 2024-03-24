@@ -1,4 +1,9 @@
-import { CallHandler, ExecutionContext, Injectable, NestInterceptor } from '@nestjs/common';
+import {
+  CallHandler,
+  ExecutionContext,
+  Injectable,
+  NestInterceptor,
+} from '@nestjs/common';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import * as moment from 'moment-timezone';
@@ -34,14 +39,13 @@ export class DateInterceptor implements NestInterceptor {
       if (formattedData[key] instanceof Date) {
         formattedData[key] = this.formatDate(formattedData[key]);
       } else if (typeof formattedData[key] === 'object') {
-        formattedData[key] = formattedData[key]
+        formattedData[key] = formattedData[key];
       }
     });
     return formattedData;
   }
 
-
-    private formatDate(date: Date): string {
-        return moment(date).format('YYYY-MM-DD HH:mm:ss');
-    }
+  private formatDate(date: Date): string {
+    return moment(date).format('YYYY-MM-DD HH:mm:ss');
+  }
 }

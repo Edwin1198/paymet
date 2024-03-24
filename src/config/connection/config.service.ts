@@ -3,7 +3,7 @@ import * as dotenv from 'dotenv';
 dotenv.config();
 
 class ConfigService {
-  constructor(private env: { [k: string]: string | undefined }) { }
+  constructor(private env: { [k: string]: string | undefined }) {}
 
   private getValue(key: string, throwOnMissing = true): string {
     const value = this.env[key];
@@ -14,7 +14,7 @@ class ConfigService {
   }
 
   public ensureValues(keys: string[]) {
-    keys.forEach(k => this.getValue(k, true));
+    keys.forEach((k) => this.getValue(k, true));
     return this;
   }
 
@@ -22,10 +22,16 @@ class ConfigService {
     return {
       type: 'postgres',
       host: this.getValue('DB_HOST') ? this.getValue('DB_HOST') : 'localhost',
-      port: this.getValue('POSTGRES_PORT') ? +this.getValue('POSTGRES_PORT') : 5432,
-      username: this.getValue('POSTGRES_USER') ? this.getValue('POSTGRES_USER') : 'postgres',
+      port: this.getValue('POSTGRES_PORT')
+        ? +this.getValue('POSTGRES_PORT')
+        : 5432,
+      username: this.getValue('POSTGRES_USER')
+        ? this.getValue('POSTGRES_USER')
+        : 'postgres',
       password: this.getValue('DB_PASS') ? this.getValue('DB_PASS') : '123',
-      database: this.getValue('POSTGRES_DB') ? this.getValue('POSTGRES_DB') : 'postgres',
+      database: this.getValue('POSTGRES_DB')
+        ? this.getValue('POSTGRES_DB')
+        : 'postgres',
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       autoLoadEntities: true,
       synchronize: false,

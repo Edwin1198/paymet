@@ -8,8 +8,8 @@ export enum CRUDMessagesSuccess {
 export enum CRUDMessagesNotfound {
   GetNotfound = 'No se encontrarón registros',
   PosteNotfound = 'Los identificadores ya fueron registrados.',
-  UpdateNotfound = 'El registro no existe.',
-  DeleteNotfound = 'El registro no existe.',
+  // UpdateNotfound = 'El registro no existe.',
+  // DeleteNotfound = 'El registro no existe.',
 }
 
 export enum CRUDMessagesError {
@@ -19,13 +19,12 @@ export enum CRUDMessagesError {
   DeleteError = 'Ocurrio un error al intentar eliminar el registro.',
 }
 
-
 export const CRUDOperation = {
   get: 'Mostrar datos',
   post: 'Guardar datos',
   put: 'Editar datos',
   delete: 'Eliminar datos',
-}
+};
 
 export const CRUDOResponse = {
   getDescription: 'Se ejecuto el get correctamente',
@@ -36,21 +35,21 @@ export const CRUDOResponse = {
   putStatus: 200,
   deleteDescription: 'Se ejecuto el delete correctamente',
   deleteStatus: 200,
-}
+};
 
 export const CRUDOBody = {
   postDescription: 'Información de la data',
   putDescription: 'Información de la data',
-}
+};
 
 export const CRUDOParam = {
   putName: 'id',
   deleteName: 'id',
-}
+};
 
 export const CRUDOLogger = {
   titlePost: 'ERROR INSERT',
   titlePut: 'ERROR UPDATE',
   titleDelete: 'ERROR DELETE',
-  descripcionId: 'No se encontró la data con ese id'
-}
+  descripcionId: 'No se encontró la data con ese id',
+};
